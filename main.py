@@ -60,3 +60,13 @@ def get_product(id: str, response: Response):
 @app.post("/products")
 def create(product: Product):
     return product.save()
+
+
+@app.delete("/product/{id}")
+def delete_product(id: int, response: Response):
+    product = get_product_details(id)
+    if (not product):
+        response.status_code = 404
+        return {}
+
+    return Product.delete(id)
