@@ -71,7 +71,7 @@ def create(product: Product, response: Response):
 @app.delete("/products/{id}")
 def delete_product(id: str, response: Response):
     try:
-        product = get_product_details(id)
+        get_product_details(id)
         return Product.delete(id)
     except NotFoundError:
         response.status_code = 404
