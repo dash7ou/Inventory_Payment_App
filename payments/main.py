@@ -75,3 +75,5 @@ def order_compeleted(order: Order):
     time.sleep(5)
     order.status = "compeleted"
     order.save()
+    # * mean auto generated ID.
+    redis.xadd('order_completed', order.dict(), '*')
