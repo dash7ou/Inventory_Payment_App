@@ -59,7 +59,7 @@ def create(order: CreateOrder, background_tasks: BackgroundTasks):
         price=product["price"],
         fee=0.2 * product["price"],
         total=1.2 * product["price"],
-        quantity=product["quantity"],
+        quantity=order.quantity,
         status="pending",
     )
 
